@@ -17,7 +17,7 @@ app.get('/books', (req, res) => {
     res.json(books); //Send the array of books as JSON response
 });
 
-app.posst('/books', (req, res) => {
+app.post('/books', (req, res) => {
     const newBook = req.body; //Get the new book data from the request body
     newBook.id = books.length + 1; //Assign a unique ID
     books.push(newBook); //Add the new book to the array
@@ -60,4 +60,8 @@ app.delete('/books/:id', (req, res) => {
     } else {
         res.status(404).send('Book not found'); //Send error for non-existent book
     }
+});
+
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });
