@@ -65,3 +65,15 @@ app.delete('/books/:id', (req, res) => {
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
+
+app.post('/users', (req, res) => {
+    const newUser = req.body; // newUser will be an object containing user data
+    // Process newUser data (e.g., name, email)
+    res.json(newUser);
+ });
+
+ app.get('/products/:productId', (req, res) => {
+    const productId = req.params.productId; // productId will contain the value from the URL
+    // Find product by id and send details
+    res.json(productDetails);
+ });
