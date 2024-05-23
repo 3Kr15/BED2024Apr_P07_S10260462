@@ -6,7 +6,7 @@ class Book {
       this.id = id;
       this.title = title;
       this.author = author;
-    }
+    }static asyn 
   
     static async getAllBooks() {
       const connection = await sql.connect(dbConfig);

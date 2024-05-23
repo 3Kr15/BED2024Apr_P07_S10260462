@@ -4,6 +4,9 @@ const dbConfig = require("./dbConfig");
 const booksController = require("./controllers/booksController");
 const bodyParser = require("body-parser"); // Import body-parser
 
+const usersController = require("./controllers/usersController");
+
+
 
 
 const app = express();
@@ -25,6 +28,16 @@ app.get("/books/:id", booksController.getBookById);
 app.post("/books", validateBook, booksController.createBook);
 app.put("/books/:id", booksController.updateBook); // PUT for updating books
 app.delete("/books/:id", booksController.deleteBook); // DELETE for deleting books
+
+// Routes for Users
+app.post("/users", usersController.createUser); // Create user
+app.get("/users", usersController.getAllUsers); // Get all users
+app.get("/users/:id", usersController.getUserById); // Get user by ID
+app.put("/users/:id", usersController.updateUser); // Update user
+app.delete("/users/:id", usersController.deleteUser); // Delete user
+app.get("/users/search", usersController.searchUsers);
+module.exports = router;
+app.get("/users/with-books", userController.getUsersWithBooks);
 
 app.listen(port, async () => {
   try {
